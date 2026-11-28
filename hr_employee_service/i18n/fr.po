@@ -1,0 +1,109 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_employee_service
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2019-05-23 20:19+0000\n"
+"Last-Translator: Kévin Allard <kallard@efficom-lille.com>\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.6.1\n"
+
+#. module: hr_employee_service
+#: model_terms:ir.ui.view,arch_db:hr_employee_service.view_employee_form_inherit_extension
+msgid "<span class=\"ml8 mr8\">month(s)</span>"
+msgstr "<span class=\"ml8 mr8\">mois</span>"
+
+#. module: hr_employee_service
+#: model_terms:ir.ui.view,arch_db:hr_employee_service.view_employee_form_inherit_extension
+msgid "<span class=\"ml8 mr8\">year(s)</span>"
+msgstr "<span class=\"ml8 mr8\">année(s)</span>"
+
+#. module: hr_employee_service
+#: model_terms:ir.ui.view,arch_db:hr_employee_service.view_employee_form_inherit_extension
+msgid "<span class=\"ml8\">day(s)</span>"
+msgstr "<span class=\"ml8\">jour(s)</span>"
+
+#. module: hr_employee_service
+#: model:ir.model,name:hr_employee_service.model_hr_employee
+msgid "Employee"
+msgstr "Employé(e)"
+
+#. module: hr_employee_service
+#: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee__service_hire_date
+msgid "Hire Date"
+msgstr "Date d'embauche"
+
+#. module: hr_employee_service
+#: model:ir.model.fields,help:hr_employee_service.field_hr_employee__service_hire_date
+msgid "Hire date is normally the date an employee completes new hire paperwork"
+msgstr ""
+"La date d'embauche est normalement la date à laquelle l'employé complète les "
+"nouveaux documents d'embauche"
+
+#. module: hr_employee_service
+#: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee__service_duration
+#: model_terms:ir.ui.view,arch_db:hr_employee_service.view_employee_form_inherit_extension
+msgid "Service Duration"
+msgstr "Durée du service"
+
+#. module: hr_employee_service
+#: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee__service_duration_days
+msgid "Service Duration (days)"
+msgstr "Durée du service (jours)"
+
+#. module: hr_employee_service
+#: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee__service_duration_months
+msgid "Service Duration (months)"
+msgstr "Durée du service (mois)"
+
+#. module: hr_employee_service
+#: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee__service_duration_years
+msgid "Service Duration (years)"
+msgstr "Durée du service (années)"
+
+#. module: hr_employee_service
+#: model_terms:ir.ui.view,arch_db:hr_employee_service.view_employee_form_inherit_extension
+msgid "Service Information"
+msgstr ""
+
+#. module: hr_employee_service
+#: model:ir.model.fields,help:hr_employee_service.field_hr_employee__service_duration
+msgid "Service duration in days"
+msgstr "Durée du service en jours"
+
+#. module: hr_employee_service
+#: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee__service_start_date
+msgid "Start Date"
+msgstr "Date de début"
+
+#. module: hr_employee_service
+#: model:ir.model.fields,help:hr_employee_service.field_hr_employee__service_start_date
+msgid ""
+"Start date is the first day the employee actually works and this date is "
+"used for accrual leave allocations calculation"
+msgstr ""
+"La date de début est le premier jour où l'employé(e) travaille réellement et "
+"cette date est utilisée pour le calcul des allocations de congés selon la "
+"comptabilité d'exercice"
+
+#. module: hr_employee_service
+#: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee__service_termination_date
+msgid "Termination Date"
+msgstr "Date de fin"
+
+#. module: hr_employee_service
+#: model:ir.model.fields,help:hr_employee_service.field_hr_employee__service_termination_date
+msgid ""
+"Termination date is the last day the employee actually works and this date "
+"is used for accrual leave allocations calculation"
+msgstr ""
+"La date de fin est le dernier jour où l'employé(e) travaille réellement et "
+"cette date est utilisée pour le calcul des allocations de congés accumulés"
